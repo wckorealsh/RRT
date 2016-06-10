@@ -1,0 +1,1 @@
+/home/slee198/RRT/rrtstar/build/lib/pkgconfig/rrtstar-standalone.pc

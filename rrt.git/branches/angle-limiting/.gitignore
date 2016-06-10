@@ -1,0 +1,10 @@
+# compiled things
+*.o
+*.a
+*.pyc
+build/
+.idea
+
+.DS_Store
+
+*.sublime-workspace
