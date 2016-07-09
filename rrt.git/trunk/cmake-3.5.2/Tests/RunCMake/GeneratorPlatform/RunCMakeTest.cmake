@@ -1,28 +1,3 @@
-include(RunCMake)
-
-set(RunCMake_GENERATOR_PLATFORM "")
-run_cmake(NoPlatform)
-
-if("${RunCMake_GENERATOR}" MATCHES "^Visual Studio ([89]|1[0124])( 20[0-9][0-9])?$")
-  set(RunCMake_GENERATOR_PLATFORM "x64")
-  run_cmake(x64Platform)
-else()
-  set(RunCMake_GENERATOR_PLATFORM "Bad Platform")
-  run_cmake(BadPlatform)
-endif()
-
-set(RunCMake_GENERATOR_TOOLSET "")
-
-set(RunCMake_TEST_OPTIONS -A "Extra Platform")
-run_cmake(TwoPlatforms)
-unset(RunCMake_TEST_OPTIONS)
-
-if("${RunCMake_GENERATOR}" MATCHES "^Visual Studio ([89]|1[0124])( 20[0-9][0-9])?$")
-  set(RunCMake_TEST_OPTIONS -DCMAKE_TOOLCHAIN_FILE=${RunCMake_SOURCE_DIR}/TestPlatform-toolchain.cmake)
-  run_cmake(TestPlatformToolchain)
-  unset(RunCMake_TEST_OPTIONS)
-else()
-  set(RunCMake_TEST_OPTIONS -DCMAKE_TOOLCHAIN_FILE=${RunCMake_SOURCE_DIR}/BadPlatform-toolchain.cmake)
-  run_cmake(BadPlatformToolchain)
-  unset(RunCMake_TEST_OPTIONS)
-endif()
+Ö%?¾ŠÄ³aNCÖÌ?‚Ì•Ä³a:CÖc?ú
+¦Ä³`ÂCÖ%?¾…ÂÄ³a×CÖ	?‚ÑéÄ³aCÖP?ú¿Ä³`ùCÖè?¾~‰Ä³bCÖÞ?‚ÔÄ³ùCÖ.Ê@­Ä°VßCÖ¡@#âÄ°VáCÖî@#^²Ä°WƒCÖS@"·Ä°WCÖ!{@"ÎúÄ°YQCÖ\@ÇßÄ°XâCÖô@°1Ä°XšCÖ¹@ƒÄÄ°X@CÖ%>@Y³Ä°XHCÖ)4@Ä°W¬CÖ2 @Ä°X;CÖh?ótÄ°XCÖ#‰?òw!Ä°XˆCÖª?Ú5JÄ°WÜCÖ)D?ñöÓÄ°W˜CÖ0]?ñ`&Ä°U>CÖ@ ãpÄ°V.CÖ@ §\Ä°YŸCÖÏ@BÄ°X÷CÖ°@ØÄ°YÂCÖB?íô)Ä°XáCÖ!ò@(ôÄ°YxCÖ†?îŸLÄ°XªCÖ(¦@ŒwÄ°XÞCÖ'A?ïÜÄ°XŠCÖ.ö@æÀÄ°XdCÖ/f?ðiRÄ°T‹CÖÊ@cÄ°U°CÖº@†Ä°WÿCÖá@Û$Ä°UCÖ"o@ÒnÄ°XsCÖ±@ïÄ°XìCÖ@’jÄ°XºCÖ@ñZÄ°XzCÖ@b°Ä°X~CÖE?ï–¾Ä°X3CÖ&<@ØÅÄ°X$CÖ%ë?ðkÛÄ°XCÖ+E@-›Ä°WÅCÖ,§?ñ:HÄ°XCÖ1@Š³Ä°XCÖ0Ú?ñ‚œÄ°OåCÖb@¶öÄ°PÈCÖh@èVÄ°RICÖ*@q­Ä°RUCÖ‘@+ÐÄ°PGCÖ
+?ØIÄ°QÛCÖG?×³Ä°RNCÖ(?×ÄäÄ«Ý‚CÖM@ïÚ>Ä«ß±CÖ°@Ð(Ä³_CÖTR?ú‰wÄ³^ÙCÖS?¾ÈÄ³`CÖT®?‚ÅÊÄ³_lCÖKÌ?ú}XÄ³_CÖJŸ?¾ºÒÄ³`FCÖKá?‚ÆöÄ³_CÖDv?úhÚÄ³_'CÖC3?¾®ÅÄ³`YCÖDZ?‚Æ†Ä³_£CÖ;ð?úFAÄ³_¨CÖ;`?¾®vÄ³`»CÖ<V?‚É€Ä³_öCÖ5I?ú<®Ä³_ÜCÖ4Œ?¾¦”Ä³`ÿCÖ5•?‚Ë}Ä³‘CÖRž@!

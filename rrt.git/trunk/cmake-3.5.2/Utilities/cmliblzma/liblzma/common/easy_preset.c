@@ -1,27 +1,3 @@
-///////////////////////////////////////////////////////////////////////////////
-//
-/// \file       easy_preset.c
-/// \brief      Preset handling for easy encoder and decoder
-//
-//  Author:     Lasse Collin
-//
-//  This file has been put into the public domain.
-//  You can do whatever you want with this file.
-//
-///////////////////////////////////////////////////////////////////////////////
-
-#include "easy_preset.h"
-
-
-extern bool
-lzma_easy_preset(lzma_options_easy *opt_easy, uint32_t preset)
-{
-	if (lzma_lzma_preset(&opt_easy->opt_lzma, preset))
-		return true;
-
-	opt_easy->filters[0].id = LZMA_FILTER_LZMA2;
-	opt_easy->filters[0].options = &opt_easy->opt_lzma;
-	opt_easy->filters[1].id = LZMA_VLI_UNKNOWN;
-
-	return false;
-}
+-CЪ╒╙@GЮпци2MCЪ═u@G╓yци6ЧCЪ÷_@Gp{ци;ТCЪ°╢@G6Жци@пCЪ⌡╝@G≥циE~CЪ≥Э@Fмци/CЪ©╔@═жци4мCЪ╪z@·sци97CЪ╧┴@÷^ци>RCЪ╥%@≥╦циD[CЪЁф@≈ЪциEhCЪ╬$@?-циJ.CЪ╞╧@²rциK╒CЪ╨C@.▐цинdCЪа╞@5N╧ция{CЪбЭ@4▄²цийICЪб▓@2а■цил▀CЪфl@3GциоICЪи═@3съцияzCЪм)@4QВцит╬CЪмн@4лфциьCЪн3@5FМций╣CЪц+@6N┌цимяCЪг▐@6+╕ция,CЪиы@6
+°цижCЪгх@5ДDцих╧CЪд@3┐╧цик^CЪфН@3m╝цимфCЪйz@3YaцияЦCЪи╨@39*циV▐CЪо!@)щ@циRiCЪхЁ@!╣≥циW┴CЪф[@"Qrци]╬CЪа╞@"РTциUSCЪа°@A8ци>mCЪа▄@Cаpци+4CЪы,@kгци1:CЪт┬@╗xци6╟CЪнн@Мци?дCЪд7@2ци*ЕCЪЦ+@T-ци.╢CЪАv@П╥ци3ЮCЪчМ@▄Сци:CЪзч@6Mци?hCЪвF@йNциEмCЪс@ yЙциKtCЪоB@!eци+CЪм@┘kци1░CЪи╔@pЕци8$CЪеe@bGци>|CЪб(@MЁци)eCЪбЦ@║÷ци(юCЪпг@█ёци/#CЪлx@~Mци3╠CЪиO@mЪци9яCЪдз@apци?еCЪа╦@Mжци%CЪБА@"ш┴циvCЪЮh@
+╗циMCЪЦ@!О@ци·CЪьK@

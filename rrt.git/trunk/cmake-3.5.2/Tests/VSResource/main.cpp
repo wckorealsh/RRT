@@ -1,82 +1,35 @@
-#include <windows.h>
-#include <stdio.h>
-
-extern int lib();
-
-struct x
-{
-  const char *txt;
-};
-
-int main(int argc, char** argv)
-{
-  int ret = 1;
-
-  fprintf(stdout, "CTEST_FULL_OUTPUT (Avoid ctest truncation of output)\n");
-
-#ifdef CMAKE_RCDEFINE
-  fprintf(stdout, "CMAKE_RCDEFINE defined\n");
-#endif
-
-#ifdef CMAKE_RCDEFINE_NO_QUOTED_STRINGS
-  // Expect CMAKE_RCDEFINE to preprocess to exactly test.txt
-  x test;
-  test.txt = "*exactly* test.txt";
-  fprintf(stdout, "CMAKE_RCDEFINE_NO_QUOTED_STRINGS defined\n");
-  fprintf(stdout, "CMAKE_RCDEFINE is %s, and is *not* a string constant\n",
-    CMAKE_RCDEFINE);
-#else
-  // Expect CMAKE_RCDEFINE to be a string:
-  fprintf(stdout, "CMAKE_RCDEFINE='%s', and is a string constant\n",
-    CMAKE_RCDEFINE);
-#endif
-
-  HRSRC hello = ::FindResource(NULL, MAKEINTRESOURCE(1025), "TEXTFILE");
-  if(hello)
-    {
-    fprintf(stdout, "FindResource worked\n");
-    HGLOBAL hgbl = ::LoadResource(NULL, hello);
-    int datasize = (int) ::SizeofResource(NULL, hello);
-    if(hgbl && datasize>0)
-      {
-      fprintf(stdout, "LoadResource worked\n");
-      fprintf(stdout, "SizeofResource returned datasize='%d'\n", datasize);
-      void *data = ::LockResource(hgbl);
-      if (data)
-        {
-        fprintf(stdout, "LockResource worked\n");
-        char *str = (char *) malloc(datasize+4);
-        if (str)
-          {
-          memcpy(str, data, datasize);
-          str[datasize] = 'E';
-          str[datasize+1] = 'O';
-          str[datasize+2] = 'R';
-          str[datasize+3] = 0;
-          fprintf(stdout, "str='%s'\n", str);
-          free(str);
-
-          ret = 0;
-
-#ifdef CMAKE_RCDEFINE_NO_QUOTED_STRINGS
-          fprintf(stdout, "LoadString skipped\n");
-#else
-          char buf[256];
-          if (::LoadString(NULL, 1026, buf, sizeof(buf)) > 0)
-            {
-            fprintf(stdout, "LoadString worked\n");
-            fprintf(stdout, "buf='%s'\n", buf);
-            }
-          else
-            {
-            fprintf(stdout, "LoadString failed\n");
-            ret = 1;
-            }
-#endif
-          }
-        }
-      }
-    }
-
-  return ret + lib();
-}
+alse";
+reports-manual-drive-event.velodyne_module_stats_std.min_value = "10";
+wsqrd.maneuver-tron.inpath-channel = "LANE_FOLLOW_INPATH_CAR_LANE_NOMINAL";
+viewer-torc-demo.hazard-map.draworder.LASER_HAZARD_MAP = "-576";
+reports-avp-bpe.swa_arc_module.grid_spacing = "20";
+viewer-svozar-demo.velodyne-yellow-colored.num_scans = "10";
+viewer-jhstrom-loc.maneuver-tron-old.ribbon_arrow = "true";
+viewer-alexgc.velodyne-blue.colorScheme = "2";
+viewer-chardson-tl.velodyne-spots-yellow.historic_scans = "1.01";
+viewer-chardson-tl-demo.velodyne-spots-green.showIntensities = "false";
+viewer-chardson-tl2D-loc.velodyne-green.minRange = "0.0";
+reports-full.avp_accel_module.max_accel = "4";
+viewer-velcolored.velodyne-green.class = "dngv.viewer.ViewVelodyne";
+viewer-chardson-waypoints.maneuver-tron-old.enable_truncate_behind_car = "false";
+viewer-chardson-tl2D-loc.velodyne-colored.num_scans = "10";
+viewer-levin-demo.maneuver-tron.ribbon_time_dash_interval_s = "0.5";
+policies.lane-nominal-base.static-obs-avoidance.safety_dist = "4.0";
+reports-control.curvature_estimation_dmpc_module.curv_axis = "0.005";
+reports-avp.radar_module.max_value = "19";
+viewer-commute.hazard-map.draworder.HAZARD_MAP_PRE = "-581";
+viewer-levin-demo.velodyne-blue-colored.num_scans = "10";
+policies.lane-change-stable-right.lane-follow.closing_rate_clamp_min_ms = "-5.0";
+viewer-chardson-tl.velodyne-red.lib = "view_velbatch";
+reports-avp.radar_module.min_value = "18";
+default.sub_channel_waypoints = "WAYPOINTS";
+viewer-jhstrom-obs.turn-signals.color = [ "1.0", "0.0", "0.0", "1.0", ];
+virtual-traffic-left.velocity-shaping.fwd_offset = "0.0";
+reports-control-localization.autoready_module.avp_status_channel = "REPORT_AVP_STATUS";
+viewer-alexgc.maneuver.lib = "view_maneuver";
+viewer-5velodyne.carl.draworder.grid = "10005";
+viewer-cohensh-demo.obstacle-tracker.draw-arrows = "false";
+policies.lane-change-generic-base.lane-follow.apply_start_dist_m = "-9.0";
+reports-lane-follow-shc_bounds.understeer_module.grid_spacing_dswa = "5";
+viewer-eye-candy.hazard-map.draworder.HAZARD_MAP_RAW = "-605";
+viewer-chardson-tl2D-obs.pc

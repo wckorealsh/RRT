@@ -1,34 +1,2 @@
-/*============================================================================
-  CMake - Cross Platform Makefile Generator
-  Copyright 2015 Geoffrey Viola <geoffrey.viola@asirobots.com>
-
-  Distributed under the OSI-approved BSD License (the "License");
-  see accompanying file Copyright.txt for details.
-
-  This software is distributed WITHOUT ANY WARRANTY; without even the
-  implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-  See the License for more information.
-============================================================================*/
-#ifndef cmGhsMultiGpj_h
-#define cmGhsMultiGpj_h
-
-class cmGeneratedFileStream;
-
-class GhsMultiGpj
-{
-public:
-  enum Types
-  {
-    INTERGRITY_APPLICATION,
-    LIBRARY,
-    PROJECT,
-    PROGRAM,
-    REFERENCE,
-    SUBPROJECT
-  };
-
-  static void WriteGpjTag(Types const gpjType,
-                          cmGeneratedFileStream *filestream);
-};
-
-#endif // ! cmGhsMultiGpjType_h
+‰Ä#ØÅÄ_JM@–‘9Ä#ØÌÄ_KÅ@–‡åÄ#Ø†Ä_MÊ@–yeÄ#Ø?Ä_O…@–kÄ#ØÄ_R@–bYÄ#Ø	Ä_T_@–\Ä#×ÈÄ_V^@–NdÄ#×ÇÄ_Y@–K@Ä#ÖôÄ_F…@—OÄ#Ö™Ä_GŠ@—s;Ä#ÕiÄ_G®@—q†Ä#ÔÃÄ_I@—‰Ä#ÓãÄ_J@—ëÄ#ÓÄ_K@—¯ïÄ#ÑûÄ_K‚@—¶®Ä#Ñ9Ä_Li@—ÇVÄ#ĞªÄ_Mé@—åÌÄ#ÏŒÄ_N@—ï­Ä#ÏÄ_PH@˜’Ä#ÎÄ_Pã@˜Ä#Í`Ä_Rj@˜<Ä#Ë	Ä_Fú@˜íÀÄ#Ê×Ä_I@˜è.Ä#Ê˜Ä_Jå@˜ß•Ä#Ê…Ä_MŸ@˜à¶Ä#Ê2Ä_O|@˜ÔzÄ#Ê"Ä_Pò@˜Ì¬Ä#ÉáÄ_S0@˜ÄrÄ#É‘Ä_UQ@˜¹!Ä#ÉgÄ_W¦@˜µ$Ä#»:Ä_HK@šÊ½Ä#»'Ä_JÖ@šÒDÄ#º¤Ä_LT@šÀÄ#º0Ä_NX@š³Ä#¹üÄ_P©@š³tÄ#¹ğÄ_RW@š³Ä#¹§Ä_T°@š¯‰Ä#Ì‰Ä_R_@˜H2Ä#Ë¼Ä_Sg@˜\"Ä#Ë/Ä_U@˜}Ä#ÉäÄ_UJ@˜‡Ä#ÉrÄ_Vı@˜£NÄ#È\Ä_W”@˜¬şÄ#ÇFÄ_X+@˜¶±Ä#¹!Ä_Vr@šÉÄ#¹Ä_Xù@š¤8Ä#«òÄ_G—@œ£‡Ä#«™Ä_IË@œ¢\Ä#«Ä_K¤@œ—­Ä#ªÇÄ_M@œ•
+Ä#ªUÄ_Oc@œŒ;Ä#ªÄ_R7@œ”ñÄ#©|Ä_R¸@œv¯Ä#©{Ä_U¶@œŒpÄ#¨åÄ_Wr@œ{èÄ#²ŸÄ_GÙ@›ã£Ä#±jÄ_GÂ@›İ”Ä#°¿Ä_I@›ü»Ä#¯Ä_I>@›ıIÄ#®İÄ_J³@œ Ä#­ÎÄ_K7@œ)èÄ#­*Ä_Ke@œ?§Ä#¬}Ä_L÷@œe™Ä#«bÄ_MZ@œlrÄ#ª·Ä_NÈ@œóÄ#©°Ä_Of@œœÄ#¨ØÄ_PZ@œ²+Ä#§ÙÄ_Q@œÂtÄ#¦ÿÄ_R@œØšÄ$êÄ_4@–Ä$ÂÄ_5²@ñ<Ä$|Ä_7r@ØÁÄ#úìÄ_3B@}î4Ä#ú´Ä_3“@~EvÄ#úYÄ_4 @~˜óÄ#ıÄ_4È@„,Ä#ù¹Ä_5•@~õÓÄ#üŒÄ_5¤@„.5Ä#ù

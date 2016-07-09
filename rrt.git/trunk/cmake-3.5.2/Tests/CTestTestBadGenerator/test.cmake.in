@@ -1,21 +1,3 @@
-cmake_minimum_required(VERSION 3.0)
-
-# Settings:
-set(CTEST_DASHBOARD_ROOT                "@CMake_BINARY_DIR@/Tests/CTestTest")
-set(CTEST_SITE                          "@SITE@")
-set(CTEST_BUILD_NAME                    "CTestTest-@BUILDNAME@-Depends")
-
-set(CTEST_SOURCE_DIRECTORY              "@CMake_SOURCE_DIR@/Tests/CTestTestBadGenerator")
-set(CTEST_BINARY_DIRECTORY              "@CMake_BINARY_DIR@/Tests/CTestTestBadGenerator")
-set(CTEST_CVS_COMMAND                   "@CVSCOMMAND@")
-set(CTEST_CMAKE_GENERATOR               "Bad Generator")
-set(CTEST_CMAKE_GENERATOR_PLATFORM      "")
-set(CTEST_CMAKE_GENERATOR_TOOLSET       "")
-set(CTEST_BUILD_CONFIGURATION           "$ENV{CMAKE_CONFIG_TYPE}")
-set(CTEST_COVERAGE_COMMAND              "@COVERAGE_COMMAND@")
-set(CTEST_NOTES_FILES                   "${CTEST_SCRIPT_DIRECTORY}/${CTEST_SCRIPT_NAME}")
-
-CTEST_START(Experimental)
-CTEST_CONFIGURE(BUILD "${CTEST_BINARY_DIRECTORY}" RETURN_VALUE res)
-CTEST_BUILD(BUILD "${CTEST_BINARY_DIRECTORY}" RETURN_VALUE res)
-CTEST_TEST(BUILD "${CTEST_BINARY_DIRECTORY}" RETURN_VALUE res)
+ñQ?”÷¤Ã|
+Äoÿ™?òÓ.Ã|FÒÄoô6?½…>Ã|BýÄoó?°AÃ|AßÄoñÄ?£†2Ã|.÷Äoñ×?”ÞÈÃ|HéÄoôð?½KsÃ|B²Äoóù?¯³ÜÃ|B„Äoò•?£ÙÃ|1ùÄoòs?”»HÃ|KáÄoõ?½9›Ã|A_Äoôã?¯Ã|FéÄoó?£,ÍÃ|3zÄoó!?”sÛÃ|E±ÄoõW?¯*Ã|IÎÄoóŸ?£ŠÃ|5dÄoó¼?”>AÃ|FœÄoõÿ?®ÜÃ|L¢Äoô"?£ÅÃ|5RÄoôq?“ØÃ|IÄoö¦?®¾Ã|9¿Äoôô?“ÙÃ|KvÄoöû?®«:Ã|:žÄoõT?“¢·Ã|LlÄo÷®?®VlÃ|=ôÄoõÖ?“’XÃ|>áÄoö…?“?ŒÃ|C;Äo÷?“B¿Ã|F1Äo÷¤?“‚Ã|G•ÄoøL?’ÑÃ|IîÄoøã?’¢ùÃ|°Äoí?’ÔÃ|QÄoíë?’É.Ã|$_ÄoíK?¤‡¾Ã|ÆÄoî„?“ .Ã|&éÄoî?¤²Ã|ÉÄoï<?“RIÃ|,aÄoî©?¥/Ã|ÜÄoð?“„sÃ|-óÄoï‚?¥=ÔÃ|aÄoðÆ?“ªAÃ|1ÄoðR?¥ƒÐÃ|!üÄoñ“?“èÅÃ|4Äoñ?¥®Ã|$}ÄoòW?”“Ã|7ÄoñÙ?¥æ.Ã|&Äoó&?”(Ã|94ÄoòÈ?¦ÉÃ|*’Äoóì?”räÃ|9¢ÄoóY?¦~Ã|._Äoô<?”Õ7Ã|>¥Äoô?¦ØÃ|0ùÄoõ ?”û Ã|AÄoôÞ?¦ª Ã|1þÄoö?”üÃ|EÄoõ?¦ýÈÃ|3÷ÄoöÕ?•„Ã|F*Äoö”?¦þËÃ|;cÄo÷e?•¶pÃ|I	Äo÷K?§6ÏÃ|>AÄoø?•è{Ã|LÄoø?§|¹Ã|B²ÄoøÓ?–?ŠÃ|C?ÄoùÐ?–4.Ã|H(Äoú‚?–—‹Ã|J„ÄoûC?–½GÃ|
+@ÄoìÖ?©éÈÃ|	æÄoìö?©TÃ|žÄoí$?Å&½Ã|lÄoí@?ªAÃ|&Äoít?Õ=Ã|ÄoíÑ?Åd[Ã|Äoî?ªýÃ|¡Äoî ?:Ã|ÈÄoîK?ÅßÃ|ÄÄoîŽ?ª™ÁÃ|ÄoîÊ?Ã|ôÄoî¼?ÆnAÃ|*žÄoí??»ÅhÃ|+Äoï9?ª«•Ã|,ÒÄoí)? Å}Ã|eÄoïa?<Ã|/jÄoí‘?õ“Ã|=ÄoïE?ÆýlÃ|,&Äoî?»ØºÃ|ŽÄoïÔ?«bÃ|/ÇÄoíÒ?¡âÃ|HÄoïñ?“‹Ã|0ÐÄoîB?õ¨—Ã|ŽÄoïß?Ç:

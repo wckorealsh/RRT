@@ -1,49 +1,3 @@
-#include <stdio.h>
-#include  <stdlib.h>
-#ifdef _WIN32
-#include <io.h>
-#else
-#include <unistd.h>
-#endif
-
-// return true if the file exists
-int FileExists(const char* filename)
-{
-#ifdef _MSC_VER
-# define access _access
-#endif
-#ifndef F_OK
-#define F_OK 0
-#endif
-  if ( access(filename, F_OK) != 0 )
-    {
-    return false;
-    }
-  else
-    {
-    return true;
-    }
-}
-
-
-int main(int ac, char** av)
-{
-  if(ac <= 1)
-    {
-    printf("Usage: %s <file>\n", av[0]);
-    return 1;
-    }
-  if(!FileExists(av[1]))
-    {
-    printf("Missing file %s\n", av[1]);
-    return 1;
-    }
-  if(FileExists(av[2]))
-    {
-    printf("File %s should be in subdirectory\n", av[2]);
-    return 1;
-    }
-  printf("%s is not there! Good.", av[2]);
-  printf("%s is there! Good.", av[1]);
-  return 0;
-}
+ç@†Ä8‘”Äò!?Ø®rÄ8‘¡Äñ?ÍUÄ8‘£Äğ?Â£GÄ8‘×Äñã?µ5Ä8‘ÏÄğk?«OÄ8’Äòw?Œ0Ä8’Äôó@ô§Ä8’EÄò<?Ø‚±Ä8’SÄñ¹?Í,«Ä8’UÄğª?Â’Ä8’Äñ¡?µ…ûÄ8’ÄğX?«dûÄ8’ÄÄò¤?^†Ä8’¾Äôş@ç«Ä8’3ÄìÙ@.ñÄ8’éÄò*?Ø¯Ä8’ôÄñˆ?Ír¹Ä8’üÄğ§?Â•xÄ8“)ÄñÍ?µOMÄ8“$ÄğE?«z>Ä8’ßÄìÖ@0®Ä8líÄñí?¸¹Ä8mÄñè?¸©¥Ä8mÌÄñæ?¸Â@Ä8m Äîò?°‡İÄ8nzÄò?¸±ƒÄ8mĞÄï?°|Ä8mdÄñA?ĞäéÄ8mÄï?ÈcÄ8o/Äñò?¸İ’Ä8n—Äï?°‡¾Ä8n.Äñ|?Ğ¤^Ä8mÏÄï%?ÇõAÄ8oÑÄñâ?¹OÄ8o-Äîî?°ĞÄ8mˆÄö\@«Ä8níÄñ‰?Ğ¤bÄ8nÄï2?ÇøˆÄ8p}ÄñÑ?¹-
+Ä8oâÄîì?°èßÄ8n8ÄöZ@–uÄ8o…ÄñZ?Ğõ-Ä8o>Äï1?ÈQÄ8q-Äñà?¹.İÄ8p”Äîü?°î+Ä8pCÄñh?Ğô8Ä8oâÄï?È\ Ä8qûÄò?¸üQÄ8qWÄï?°ä½Ä8oÄöe@“]Ä8púÄñ–?ĞÄ
+Ä8p©ÄïO?ÈvÄ8rcÄñ£?¹¢Ä8qäÄîì?±)3Ä8mrÄî¢@éÄ8q®Äñu?ÑVÄ8q^Äï.?ÈI±Ä8sAÄñî?¹Z?Ä8r°Äï	?±!Ä8nÄîf@ÊçÄ8rvÄñ²?Ğ¿qÄ8r!Äï\?È áÄ8sğÄñş?¹Z'Ä8shÄï)?±

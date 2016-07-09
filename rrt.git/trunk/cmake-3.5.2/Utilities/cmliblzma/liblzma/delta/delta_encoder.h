@@ -1,23 +1,3 @@
-///////////////////////////////////////////////////////////////////////////////
-//
-/// \file       delta_encoder.h
-/// \brief      Delta filter encoder
-//
-//  Author:     Lasse Collin
-//
-//  This file has been put into the public domain.
-//  You can do whatever you want with this file.
-//
-///////////////////////////////////////////////////////////////////////////////
-
-#ifndef LZMA_DELTA_ENCODER_H
-#define LZMA_DELTA_ENCODER_H
-
-#include "delta_common.h"
-
-extern lzma_ret lzma_delta_encoder_init(lzma_next_coder *next,
-		lzma_allocator *allocator, const lzma_filter_info *filters);
-
-extern lzma_ret lzma_delta_props_encode(const void *options, uint8_t *out);
-
-#endif
+wµ¸Ä´°'C¯—Õ>ÈÜÄ´°9C¯‰?wæÄ´°«C¯‹ì>Ç4aÄ´±C¯€—>Æ`6Ä´®ÏC¯ Ã?gPÄ´®²C¯¢>™ÉåÄ´¯[C¯•ì?f×Ä´¯C¯–¯>˜´üÄ´¯ÇC¯‰?e…Ä´­vC¯Áú?¬½JÄ´­ÀC¯¶*?©{MÄ´­C¯°‡?.ÁQÄ´®‹C¯Ä(?z×WÄ´®äC¯Æ8>ËZ)Ä´®–C¯¸z?zÄ´¯C¯»>Ê„âÄ´®ÿC¯¬Ã?y?ÿÄ´¯pC¯¯+>É¢Ä´­ÇC¯Ä?j=Ä´­pC¯Ä{> Ä´®[C¯¹2?i3Ä´­âC¯¹>›ùõÄ´®´C¯­m?hL
+Ä´¬lC¯Å?9¢KÄ´¬•C¯ºÑ?4zÕÄ´¬þC¯äí?µÏnÄ´­C¯×ª?²¡æÄ´­îC¯Î?¯xøÄ´¬ìC¯ç?}©Ä´­¬C¯êÐ>ÎÄ´­?C¯ÚÀ?|D-Ä´®C¯ÞÛ>Í1lÄ´®EC¯Ñÿ>Ì9¾Ä´­!C¯Ý½?lmÄ´¬ÕC¯Þ\>Ÿ9Ä´¬oC¯ï#?¸ç¨Ä´ªÞC¯ð+?PÞ3Ä´«‘C¯å¯?J¢¢Ä´«´C¯Ûç?E¶OÄ´¬C¯êº?mgÄ´¬ŠC¯ìG> ÐÄ´­	C°ì>ÏèõÄ´¬ÿC¯ôG?~ÍÄ´­AC¯ö>Îî¸Ä´¬C¯ù\?»àjÄ´ªC°N?b³kÄ´ªBC°<?\ì`Ä´ªžC¯üÿ?VÝ4Ä´«¼C°Ñ?€8ÐÄ´«óC°g>Ñ›šÄ´«ûC°
+ç?‹ŒÄ´¬˜C°'>ÐÂ-Ä´¬UC¯ÿR?~ÂVÄ´«ÊC°?oï¦Ä´«GC°Ë>¤>6Ä´«öC

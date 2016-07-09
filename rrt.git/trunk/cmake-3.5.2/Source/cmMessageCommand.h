@@ -1,53 +1,14 @@
-/*============================================================================
-  CMake - Cross Platform Makefile Generator
-  Copyright 2000-2009 Kitware, Inc., Insight Software Consortium
-
-  Distributed under the OSI-approved BSD License (the "License");
-  see accompanying file Copyright.txt for details.
-
-  This software is distributed WITHOUT ANY WARRANTY; without even the
-  implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-  See the License for more information.
-============================================================================*/
-#ifndef cmMessageCommand_h
-#define cmMessageCommand_h
-
-#include "cmCommand.h"
-
-/** \class cmMessageCommand
- * \brief Displays a message to the user
- *
- */
-class cmMessageCommand : public cmCommand
-{
-public:
-  /**
-   * This is a virtual constructor for the command.
-   */
-  virtual cmCommand* Clone()
-    {
-    return new cmMessageCommand;
-    }
-
-  /**
-   * This is called when the command is first encountered in
-   * the CMakeLists.txt file.
-   */
-  virtual bool InitialPass(std::vector<std::string> const& args,
-                           cmExecutionStatus &status);
-
-  /**
-   * The name of the command as specified in CMakeList.txt.
-   */
-  virtual std::string GetName() const { return "message";}
-
-  /**
-   * This determines if the command is invoked when in script mode.
-   */
-  virtual bool IsScriptable() const { return true; }
-
-  cmTypeMacro(cmMessageCommand, cmCommand);
-};
-
-
-#endif
+Ê Â¾V‚Ä<¬?¼mòÂ¾y„Ä<™{@şóÂ¾XaÄ<‘Ï?ÖÜ$Â¾hÄ<u?Êd“Â¾[İÄ<–?¼ZûÂ¾zÄÄ<šd@İŒÂ¾\§Ä<’º?ÖÆÂ¾jhÄ<‘T?Ê)3Â¾`5Ä<{?¼8óÂ¾=ÃÄ<7?­CÂ¾wdÄ<›@Â¾aşÄ<“†?ÖÓğÂ¾l×Ä<’?ÉÿéÂ¾d¤Ä<=?¼(•Â¾>BÄ<á?¬ûáÂ¾x‘Ä<›ş@hAÂ¾e7Ä<”y?Ö¥oÂ¾oÄ<’ü?É¼ÓÂ¾héÄ<‘0?»ş’Â¾B’Ä<Í?¬Í”Â¾…!Ä<!@ÏÅÂ¾jqÄ<•`?Ö¤RÂ¾kˆÄ<“²?É)‹Â¾m<Ä<’?»àÂ¾DóÄ<™?¬‘–Â¾ŒØÄ<B@÷¨Â¾oŒÄ<–_?Ö•4Â¾o³Ä<”¨?É˜Â¾rmÄ<“?»ÁĞÂ¾I3Ä<†?¬aJÂ¾İÄ<Ÿ2@ùÂ¾sÂÄ<—A?ÖgÂ¾pÄ<•s?È¬¡Â¾s¿Ä<“Ó?»xÂ¾G’Ä<‘??«ò`Â¾vùÄ<˜?Ö\Â¾v7Ä<–^?È°`Â¾{öÄ<”Æ?»Â¾OÚÄ<’+?«şIÂ¾{Ä<™?Ö9}Â¾y\Ä<—R?ÈxŸÂ¾€Ä<•¾?»_Â¾W
+Ä<“+?«ğ.Â¾~RÄ<™â?Ö¯Â¾z²Ä<˜
+?È;ÒÂ¾‚uÄ<–z?»-±Â¾RwÄ<“¼?«gZÂ¾†5Ä<›?Ö6‚Â¾{ÊÄ<™?ÇİÊÂ¾††Ä<—?ºödÂ¾W”Ä<”¿?«8ÀÂ¾ŠEÄ<›÷?ÖlÂ¾|ôÄ<™Ş?ÇŒ#Â¾‰­Ä<˜g?º½ˆÂ¾]ÀÄ<•°?«!ÌÂ¾fÄ<œÒ?Ö,ZÂ¾~>Ä<š—?ÇM®Â¾ìÄ<™6?º²¯Â¾cÄ<–y?«âÂ¾zÄ<»?ÕÃ7Â¾ƒ<Ä<›š?Ç/ÏÂ¾’øÄ<š1?º~÷Â¾b1Ä<—Q?ª3Â¾–xÄ<°?ÕÈÎÂ¾tÄ<œZ?Æ¶!Â¾šÄ<›&?ºâÂ¾iVÄ<˜??ª•ËÂ¾™†Ä<Ÿ“?Õœ”Â¾‚˜Ä<-?Æh™Â¾™9Ä<›ì?ºÂ¾j…Ä<™
+?ªE£Â¾‡“Ä<%?ÆNÍÂ¾›JÄ<œÑ?¹ÊÂ¾mÄ<™î?ªÂ¾ˆ™Ä<Ÿ?ÅøàÂ¾¥.Ä<ç?¹èïÂ¾o®Ä<šÌ?©¹½Â¾‰®Ä<Ÿ×?Å©KÂ¾¦EÄ<»?¹–#Â¾x¸Ä<›Ê?©ÅìÂ¾«7Ä<Ÿµ?¹pÂ¾vÏÄ<œ‘?©HõÂ¾}ÅÄ<?©4ÒÂ¾‡ÉÄ<Œ?©OãÂ¾ƒÉÄ<ŸS?¨²ãÂ¾œFÄ<˜@
+_Â¾kÄ<d@
+&Â¾TüÄ<H?Ò’bÂ¾Q{Ä<??¶.Â¾96Ä<Œß?§´Â¾›šÄ<>@
+7Â¾\ğÄ<C?Ó0ÁÂ¾U•Ä<)?¶vYÂ¾›¶Ä<@
+$Â¾]Ä<?Ó@¢Â¾_¥Ä<!?·ìÂ¾¤Ä<ı@
+FYÂ¾`Ä<û?Ó…ÔÂ¾3xÄ<<?ÂN9Â¾]ÄÄ<ô?·÷Â¾8®Ä<W?§3|Â¾œ¶Ä<‘Ü@
+ECÂ¾>SÄ<@?ß[àÂ¾dÄ<è?ÓÜÏÂ¾6‚Ä<!?Â‚Â¾dÃÄ<ï?·{ÀÂ¾8ÈÄ</?§>ÈÂ¾˜úÄ<’ @
+ ÓÂ¾CGÄ<‘#?ßÍÂ¾f$Ä<‘Á?Ô?Â¾7Ä<ñ?Â¬5Â¾eÜÄ<‘Ã?·—tÂ¾9èÄ<ÿ?§WÂ¾œËÄ<“†@
+ZÇÂ¾KÄ<’?ày
+Â¾g2Ä<’–?Ô1×Â¾< Ä<‘Ô?Ã<Â¾lİÄ<’³?¸LÂ¾FëÄ<’?¨ÍÂ¾˜èÄ<”d@
+60Â¾SÉÄ<“#?á7Â¾g%Ä<“

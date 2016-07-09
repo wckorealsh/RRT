@@ -1,140 +1,81 @@
-cmake_minimum_required(VERSION 3.0)
-project(VSWinStorePhone)
-if(MSVC_VERSION GREATER 1899)
-  set(COMPILER_VERSION "14")
-elseif(MSVC_VERSION GREATER 1700)
-  set(COMPILER_VERSION "12")
-elseif(MSVC_VERSION GREATER 1600)
-  set(COMPILER_VERSION "11")
-endif()
-
-set (APP_MANIFEST_NAME Package.appxmanifest)
-if("${CMAKE_SYSTEM_NAME}" STREQUAL "WindowsPhone")
-  set(PLATFORM WP)
-  add_definitions("-DPHONE")
-  if("${CMAKE_SYSTEM_VERSION}" STREQUAL "8.0")
-    set(APP_MANIFEST_NAME WMAppManifest.xml)
-    set(WINDOWS_PHONE8 1)
-  endif()
-elseif("${CMAKE_SYSTEM_NAME}" STREQUAL "WindowsStore")
-  set(PLATFORM STORE)
-else()
-  set(PLATFORM DESKTOP)
-  message(FATAL_ERROR "This app supports Store / Phone only. Please edit the target platform.")
-endif()
-
-set_property(GLOBAL PROPERTY USE_FOLDERS ON)
-
-set(EXE_NAME Direct3DApp1)
-set(SHORT_NAME ${EXE_NAME})
-set(PACKAGE_GUID "6514377e-dfd4-4cdb-80df-4e0366346efc")
-
-if (NOT "${PLATFORM}" STREQUAL "DESKTOP")
-  configure_file(
-    cmake/Package_vc${COMPILER_VERSION}.${PLATFORM}.appxmanifest.in
-    ${CMAKE_CURRENT_BINARY_DIR}/${APP_MANIFEST_NAME}
-    @ONLY)
-endif()
-
-set(SOURCE_FILES
-  Direct3DApp1/CubeRenderer.cpp
-  Direct3DApp1/Direct3DApp1.cpp
-  Direct3DApp1/Direct3DBase.cpp
-  Direct3DApp1/pch.cpp
-  )
-
-set(HEADER_FILES
-  Direct3DApp1/BasicTimer.h
-  Direct3DApp1/CubeRenderer.h
-  Direct3DApp1/Direct3DApp1.h
-  Direct3DApp1/Direct3DBase.h
-  Direct3DApp1/DirectXHelper.h
-  Direct3DApp1/pch.h
-  )
-
-set(PIXELSHADER_FILES
-  Direct3DApp1/SimplePixelShader.hlsl
-  )
-
-set(VERTEXSHADER_FILES
-  Direct3DApp1/SimpleVertexShader.hlsl
-  )
-
-set(CONTENT_FILES ${PIXELSHADER_FILES} ${VERTEXSHADER_FILES})
-
-if (WINDOWS_PHONE8)
-  set(CONTENT_FILES ${CONTENT_FILES}
-    ${CMAKE_CURRENT_BINARY_DIR}/${APP_MANIFEST_NAME}
-    Direct3DApp1/Assets/Tiles/FlipCycleTileLarge.png
-    Direct3DApp1/Assets/Tiles/FlipCycleTileMedium.png
-    Direct3DApp1/Assets/Tiles/FlipCycleTileSmall.png
-    Direct3DApp1/Assets/Tiles/IconicTileMediumLarge.png
-    Direct3DApp1/Assets/Tiles/IconicTileSmall.png
-    Direct3DApp1/Assets/ApplicationIcon.png
-    )
-  # Windows Phone 8.0 needs to copy all the images.
-  # It doesn't know to use relative paths.
-  file(COPY
-    Direct3DApp1/Assets/Tiles/FlipCycleTileLarge.png
-    Direct3DApp1/Assets/Tiles/FlipCycleTileMedium.png
-    Direct3DApp1/Assets/Tiles/FlipCycleTileSmall.png
-    Direct3DApp1/Assets/Tiles/IconicTileMediumLarge.png
-    Direct3DApp1/Assets/Tiles/IconicTileSmall.png
-    Direct3DApp1/Assets/ApplicationIcon.png
-    DESTINATION ${CMAKE_CURRENT_BINARY_DIR}
-    )
-
-elseif (NOT "${PLATFORM}" STREQUAL "DESKTOP")
-  set(CONTENT_FILES ${CONTENT_FILES}
-    ${CMAKE_CURRENT_BINARY_DIR}/${APP_MANIFEST_NAME}
-    )
-
-    set(ASSET_FILES ${ASSET_FILES}
-    Direct3DApp1/Assets/Logo.png
-    Direct3DApp1/Assets/SmallLogo.png
-    Direct3DApp1/Assets/SmallLogo44x44.png
-    Direct3DApp1/Assets/SplashScreen.png
-    Direct3DApp1/Assets/StoreLogo.png
-    )
-endif()
-
-set(RESOURCE_FILES
-  ${CONTENT_FILES} ${DEBUG_CONTENT_FILES} ${RELEASE_CONTENT_FILES} ${ASSET_FILES}
-  Direct3DApp1/Direct3DApp1_TemporaryKey.pfx)
-
-set_property(SOURCE ${CONTENT_FILES} PROPERTY VS_DEPLOYMENT_CONTENT 1)
-set_property(SOURCE ${ASSET_FILES} PROPERTY VS_DEPLOYMENT_CONTENT 1)
-set_property(SOURCE ${ASSET_FILES} PROPERTY VS_DEPLOYMENT_LOCATION "Assets")
-set_property(SOURCE ${DEBUG_CONTENT_FILES} PROPERTY VS_DEPLOYMENT_CONTENT $<CONFIG:Debug>)
-set_property(SOURCE ${RELEASE_CONTENT_FILES} PROPERTY
-  VS_DEPLOYMENT_CONTENT $<OR:$<CONFIG:Release>,$<CONFIG:RelWithDebInfo>,$<CONFIG:MinSizeRel>>)
-
-set_property(SOURCE ${PIXELSHADER_FILES} PROPERTY VS_SHADER_TYPE Pixel)
-set_property(SOURCE ${PIXELSHADER_FILES} PROPERTY VS_SHADER_ENTRYPOINT mainPS)
-set_property(SOURCE ${PIXELSHADER_FILES} PROPERTY VS_SHADER_MODEL 4.0_level_9_3)
-set_property(SOURCE ${PIXELSHADER_FILES} PROPERTY VS_SHADER_FLAGS "/DFLAGS_ADDED /Fh \"$(OutDir)%(Filename).h\"")
-
-set_property(SOURCE ${VERTEXSHADER_FILES} PROPERTY VS_SHADER_TYPE Vertex)
-set_property(SOURCE ${VERTEXSHADER_FILES} PROPERTY VS_SHADER_ENTRYPOINT mainVS)
-set_property(SOURCE ${VERTEXSHADER_FILES} PROPERTY VS_SHADER_MODEL 4.0_level_9_3)
-set_property(SOURCE ${VERTEXSHADER_FILES} PROPERTY VS_SHADER_FLAGS "/DFLAGS_ADDED /Fh \"$(OutDir)%(Filename).h\"")
-
-
-source_group("Source Files" FILES ${SOURCE_FILES})
-source_group("Header Files" FILES ${HEADER_FILES})
-source_group("Resource Files" FILES ${RESOURCE_FILES})
-
-add_executable(${EXE_NAME} WIN32 ${SOURCE_FILES} ${HEADER_FILES} ${RESOURCE_FILES})
-set_property(TARGET ${EXE_NAME} PROPERTY VS_WINRT_COMPONENT TRUE)
-
-string(SUBSTRING "${CMAKE_SYSTEM_VERSION}" 0, 4, SHORT_VERSION)
-
-if("${SHORT_VERSION}" STREQUAL "10.0")
-  message(STATUS "Targeting Windows 10. Setting Extensions to version ${CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION}")
-  set_property(TARGET ${EXE_NAME} PROPERTY VS_DESKTOP_EXTENSIONS_VERSION "${CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION}")
-  set_property(TARGET ${EXE_NAME} PROPERTY VS_MOBILE_EXTENSIONS_VERSION "${CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION}")
-  set_property(TARGET ${EXE_NAME} PROPERTY VS_IOT_EXTENSIONS_VERSION "${CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION}")
-endif()
-
-
-target_link_libraries(${EXE_NAME} d3d11)
+iewer-levin-demo.radar-track-front.radar-channel-old = "RADAR_TRACK_.*";
+reports-control-full-3col.acceleration_lmpc_module.lmpc_data = "LMPC_DATA";
+reports-control.understeer_module.lib = "report_module_understeer";
+velocity-shaping-comfort-lane-change.stop.fwd_exp = "NAN";
+viewer-lb3.global-to-local-viewer.lib = "view_gtl";
+viewer-jhstrom-mp.velodyne-orange.showIntensities = "false";
+reports-vmpc.swa_module.max_steer_angle_deg = "359";
+reports-avp-compare.swa_rate_module.report_channel = "REPORT_STEER_ANGLE";
+viewer-5velodyne.prior-map.draw-pct = "false";
+viewer-egalcera-torque.hud-map.bounding_box = "false";
+reports-manual-drive-event.velodyne_module_stats_std.max_value = "30";
+reports-control-full-3col.timing_mp_runner_perpolicy.timing_channel = "TIMING";
+reports-avp.path_tracking_error_module.grid_spacing_time = "2";
+viewer2D-rndf.groundheight2D.pose_channel = "POSE";
+viewer2D-red.camera-thumb.lib = "view_camera_thumb";
+viewer-chardson-waypoints.velodyne-yellow.colorScheme = "2";
+viewer-jhstrom-tracks.velodyne-blue.enable_key_text = "false";
+reports-manual-drive-event.velodyne_module_stats_std.min_value = "10";
+wsqrd.maneuver-tron.inpath-channel = "LANE_FOLLOW_INPATH_CAR_LANE_NOMINAL";
+viewer-torc-demo.hazard-map.draworder.LASER_HAZARD_MAP = "-576";
+reports-avp-bpe.swa_arc_module.grid_spacing = "20";
+viewer-svozar-demo.velodyne-yellow-colored.num_scans = "10";
+viewer-jhstrom-loc.maneuver-tron-old.ribbon_arrow = "true";
+viewer-alexgc.velodyne-blue.colorScheme = "2";
+viewer-chardson-tl.velodyne-spots-yellow.historic_scans = "1.01";
+viewer-chardson-tl-demo.velodyne-spots-green.showIntensities = "false";
+viewer-chardson-tl2D-loc.velodyne-green.minRange = "0.0";
+reports-full.avp_accel_module.max_accel = "4";
+viewer-velcolored.velodyne-green.class = "dngv.viewer.ViewVelodyne";
+viewer-chardson-waypoints.maneuver-tron-old.enable_truncate_behind_car = "false";
+viewer-chardson-tl2D-loc.velodyne-colored.num_scans = "10";
+viewer-levin-demo.maneuver-tron.ribbon_time_dash_interval_s = "0.5";
+policies.lane-nominal-base.static-obs-avoidance.safety_dist = "4.0";
+reports-control.curvature_estimation_dmpc_module.curv_axis = "0.005";
+reports-avp.radar_module.max_value = "19";
+viewer-commute.hazard-map.draworder.HAZARD_MAP_PRE = "-581";
+viewer-levin-demo.velodyne-blue-colored.num_scans = "10";
+policies.lane-change-stable-right.lane-follow.closing_rate_clamp_min_ms = "-5.0";
+viewer-chardson-tl.velodyne-red.lib = "view_velbatch";
+reports-avp.radar_module.min_value = "18";
+default.sub_channel_waypoints = "WAYPOINTS";
+viewer-jhstrom-obs.turn-signals.color = [ "1.0", "0.0", "0.0", "1.0", ];
+virtual-traffic-left.velocity-shaping.fwd_offset = "0.0";
+reports-control-localization.autoready_module.avp_status_channel = "REPORT_AVP_STATUS";
+viewer-alexgc.maneuver.lib = "view_maneuver";
+viewer-5velodyne.carl.draworder.grid = "10005";
+viewer-cohensh-demo.obstacle-tracker.draw-arrows = "false";
+policies.lane-change-generic-base.lane-follow.apply_start_dist_m = "-9.0";
+reports-lane-follow-shc_bounds.understeer_module.grid_spacing_dswa = "5";
+viewer-eye-candy.hazard-map.draworder.HAZARD_MAP_RAW = "-605";
+viewer-chardson-tl2D-obs.pct.pct_filename = "$HOME/dngv/data/temp.pct";
+policies.lane-nominal-tl-simplestop.lane-follow.enable_hard_stop = "false";
+reports-vmpc.swa_module.grid_spacing_time = "2";
+reports-system-status.avp_accel_mpc_module.grid_spacing_accel = "1";
+viewer2D-yellow.control.draworder.control-legend = "20000";
+viewer-alexgc-mps-demo.intensity-match.lib = "view_intensity_match";
+viewer-alexgc.velodyne-green.hide_buffer = "true";
+viewer-engin.hazard-map.draworder.PARKING_MAP = "-570";
+viewer-jhstrom-mp.hazard-map.draworder.LASER_HAZARD_MAP = "-576";
+reports-system-status.swa_arc_module.min_plot_height = "30";
+viewer2D-red.hazard-map.draworder.LANE_CANAL = "-577";
+viewer-chardson-tl2D-obs.state.loc_status_channel = "LOCALIZATION_STATUS";
+reports-velodyne.obstacle_heading_module.grid_spacing_heading = "30";
+viewer-egalcera-test.view-bookmarks.bookmark_filename = "~/dngv/config/bookmarks.txt";
+obstacle-tracker-multi.chunk.chunk_max_samples = "20";
+viewer-jhstrom-loc.maneuver-old.enable_truncate_behind_car_at_bumper = "true";
+viewer-static-demo.waypoints.point_size = "5";
+viewer-lite.maneuver-tron-old.maneuver-channel = "MANEUVER_OLD";
+viewer-fused.radar-track-front.radar-channel = "RADAR_TRACK";
+reports-radar.trajectory_summary_module.min_plot_height = "100";
+viewer-static-demo.multipolicy.max_age_s = "5.0";
+viewer-engin.prior-map.lib = "view_prior_map";
+viewer-velspots.velodyne-green-colored.lib = "view_velcolored";
+viewer-chardson-lite.velodyne-yellow.draworder.VELODYNE_GREEN = "-890";
+reports-localization.timing_mp_runner_perpolicy.wildcard_replacements = [ "lane-nominal-mpsc-smooth", "lane-nominal-astar-mpsc", ];
+viewer-jhstrom-mp.maneuver-ribbon.ribbon_arrow = "true";
+viewer2D-blue.state.loc_status_channel = "LOCALIZATION_STATUS";
+reports-avp-bpe.disturbance_observer_module.disturbance_channel = "VMPC_SPEED_OUTPUT";
+reports-mpc.driver_interventions_module.grid_spacing_status = "2";
+viewer-jhstrom-demo.car2D.draworder.command-output = "20005";
+viewer-torc-demo.rndf.use_sim

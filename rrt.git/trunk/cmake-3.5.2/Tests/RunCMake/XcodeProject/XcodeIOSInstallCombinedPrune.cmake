@@ -1,36 +1,1 @@
-cmake_minimum_required(VERSION 3.3)
-
-project(XcodeIOSInstallCombinedPrune CXX)
-
-set(CMAKE_OSX_SYSROOT iphoneos)
-set(CMAKE_XCODE_ATTRIBUTE_CODE_SIGNING_REQUIRED "NO")
-set(CMAKE_XCODE_ATTRIBUTE_DEBUG_INFORMATION_FORMAT "dwarf")
-
-add_library(foo SHARED foo.cpp)
-install(TARGETS foo DESTINATION lib)
-
-add_library(baz SHARED foo.cpp)
-set_target_properties(
-  foo baz
-  PROPERTIES
-  XCODE_ATTRIBUTE_ARCHS[sdk=iphoneos*] armv7
-  XCODE_ATTRIBUTE_VALID_ARCHS[sdk=iphoneos*] armv7
-  XCODE_ATTRIBUTE_ARCHS[sdk=iphonesimulator*] x86_64
-  XCODE_ATTRIBUTE_VALID_ARCHS[sdk=iphonesimulator*] x86_64
-)
-
-add_library(boo SHARED foo.cpp)
-set_target_properties(
-  boo
-  PROPERTIES
-  XCODE_ATTRIBUTE_ARCHS[sdk=iphoneos*] arm64
-  XCODE_ATTRIBUTE_VALID_ARCHS[sdk=iphoneos*] arm64
-  XCODE_ATTRIBUTE_ARCHS[sdk=iphonesimulator*] i386
-  XCODE_ATTRIBUTE_VALID_ARCHS[sdk=iphonesimulator*] i386
-)
-
-add_custom_command(
-  TARGET foo
-  POST_BUILD
-  COMMAND lipo -create $<TARGET_FILE:baz> $<TARGET_FILE:boo> -output $<TARGET_FILE:foo>
-)
+2æBRg¥?JŸ(Ä¹2qBR0?ğ°öÄ¹2èBR?J}­Ä¹0“BRâ×?å%îÄ¹1(BRö?6Ä¹0éBRŒ\?äÄ¥Ä¹1~BRŸ{?œøCÄ¹1UBR8?äiÇÄ¹1ŞBRJB?œ»ºÄ¶(½BR-A?ò[­Ä¶(ŸBR­u?õş:Ä¶)BRĞ¼?øXMÄ¶*BS	?û‡ĞÄ¶'ÃBR­f?Ø™ïÄ¶(‘BRÇH?Üä±Ä¹/QBTe”?Ù“Ä¹/|BT;?×^Ä¹/»BSÏ]?Ôï}Ä¹0BS!?ÒaãÄ¹/?BT*÷?ŒzÄ¹/›BSŞ"?Š*½Ä¹/ÙBS˜–?ˆ#pÄ¹0BSCš?…·áÄ¹0:BTI@?òö-Ä¹0BTAi?¬x.Ä¹1BTZ¶?KJ¯Ä¹0*BSî	?òˆìÄ¹0$BSê.?¬>xÄ¹0øBSıı?K&kÄ¹0ÂBSŸÍ?òE‹Ä¹0—BS—ä?¬ƒÄ¹1SBS¨ë?K	Ä¹1BSSú?ñøHÄ¹0ÂBSI`?«ß6Ä¹1¤BS^N?Jï¥Ä¹/7BT:+?æ¬Ä¹/¾BTL–?/tÄ¹/BSàÁ?æC’Ä¹0BSõ²?ğÄ¹0_BS£(?æóÄ¹0DBS¤1?²ŒÄ¹0yBS?ö?å–ëÄ¹0èBSOe?x^Ä¶(ÑBSaF?ÅMµÄ¶)`BS³W?ÈVXÄ¶)iBT?Ë%Ä¶**BSŒ\?şõÄ¶'BS¸j@CÄ¶*BSG"@mØÄ¶'dBSK$?×ÿÄ¶'¼BS±Î?ÕËÄ¶(BT©?ÒëÄ¶(;BSi$?ŞBÄ¶'MBT$?ßSÄ¹-¶BU‘i?ãZ!Ä¹.4BUGî?àÜîÄ¹.vBTı`?Ş~wÄ¹.„BT­‹?ÜÓÄ¹.BUkƒ?•ê?Ä¹.LBUV?“`ôÄ¹.ÔBTÈf?‘èÄ¹.ÁBTyw?îÇÄ¹.ğBUJŠ?óòÂÄ¹.ÒBUD)?­_Ä¹/˜BUW?K¡Ä¹/_BTğÊ?ó™“Ä¹/ZBTí?¬Ş£Ä¹/üBTûÌ?K€^Ä¹/ŸBTy?óAÄ¹/BT˜]?¬¨¤Ä¹0ªBT´?KişÄ¹.WBU<N?çÚ›Ä¹.ÄBULf?íwÄ¹.mBTçê?çq{Ä¹/BTş˜?³½Ä¹.ŞBTŒ^?ç	ïÄ¹/qBT <?mzÄ¶(BU»?ÏA¯Ä¶&İBTï@R‰Ä¶(=BTU?ĞşùÄ¶'£BUR2?ÏiÎÄ¶&£BTäŸ?àñÄ¹,äBV|Š?êëÄ¹-'BV&«?

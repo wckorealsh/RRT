@@ -1,39 +1,3 @@
-#
-# This code validates that the Trilinos build was "successful enough" (since it
-# is difficult to detect this from the caller of the experimental_build_test
-# dashboard script...)
-#
-set(binary_dir "@binary_dir@")
-message("binary_dir='${binary_dir}'")
-
-
-# Count *.exe files:
-#
-file(GLOB_RECURSE exes "${binary_dir}/*.exe")
-message(STATUS "exes='${exes}'")
-list(LENGTH exes len)
-if(len LESS 47)
-  message(FATAL_ERROR "len='${len}' is less than minimum expected='47' (count of executables)")
-endif()
-message(STATUS "Found len='${len}' *.exe files")
-
-
-# Try to find the Teuchos unit tests executable:
-#
-file(GLOB_RECURSE exe "${binary_dir}/TeuchosCore_UnitTest_UnitTests.exe")
-list(LENGTH exe len)
-if(NOT len EQUAL 1)
-  message(FATAL_ERROR "len='${len}' is not the expected='1' (count of TeuchosCore_UnitTest_UnitTests.exe)")
-endif()
-message(STATUS "Found exe='${exe}'")
-
-
-# Try to run it:
-execute_process(COMMAND ${exe} RESULT_VARIABLE rv)
-if(NOT "${rv}" STREQUAL "0")
-  message(FATAL_ERROR "rv='${rv}' is not the expected='0' (result of running TeuchosCore_UnitTest_UnitTests.exe)")
-endif()
-message(STATUS "Ran exe='${exe}' rv='${rv}'")
-
-
-message(STATUS "All Trilinos build validation tests pass.")
+GŸDÖä@<"ğÃG1D×\@;õáÃGÖDØU@;ä8ÃG!~DÙ"@;ÀæÃG)'DÙ9@;€ÕÃG2ôDÆ@?MÃFçÚDÙk@7ŠÀÃF¡BDÖ)@7è¸ÃF¬çDÖ”@8ÙÃFµÏDÖş@8&XÃFÀ`D×f@8D‰ÃFÈDØ@8r…ÃFÔlDØ3@8'ÃFİçDØ—@8›ÀÃFÆ”DÇ™@>ÃÓÃFÍªDÇÖ@>…6ÃFÓQDÈw@>T_ÃFÕñDÉ@>?´ÃF×°DÊ"@>âÃFÜ~DÊá@=òvÃFŞ"DÌ@=çBÃFå`DÌL@=¨hÃFšÄDÇº@:¾OÃFŸDÈÔ@:ÁÃF¢DÉÁ@:k‘ÃF¤—DË@:R0ÃF©æDËj@:-ÃF©kDÌã@:DÃF²LDÍ\@9²}ÃF³ØDÎ¶@9ÃF»4DÏ<@9YZÃF¿DĞF@927ÃFÄADÑ*@8ÿaÃFÅaDÒ@8î¸ÃFÉÑDÓE@8Ä#ÃFÑŠDÓø@8|ÃÃFÔYDÕ@8_jÃFÛDÕº@8!“ÃFÚDÖÑ@8¨ÃFß´D×Œ@7Ù?ÃFå:DØ3@7¦QÃFPDÒ²@6ĞıÃF\~DÒş@6è&ÃFguDÓg@7sÃFrDÓê@7.gÃFyªDÔL@7\®ÃFƒ.DÔË@7‚=ÃF!DÕ'@7!ÃF—£DÕ @7À²ÃFLğDÒí@8ZÃFS4DÓ˜@7Ú>ÃFWDÔƒ@7»ÃF\DÕ]@7”ÃF_¾DÖh@7w
+ÃFf"DÖÙ@7EôÃFiÎD×ã@7)0ÃFmíDØÚ@7	KÃFpLDÙq@6â¼ÃF“´DÆõ@;¢ÃF8DÏ@5³4ÃF×DÏ¤@5ä›ÃF¸DĞ@6ÃF$MDĞ™@6/.ÃF0ÙDÑ@6QÃF<DÑ¥@6€ƒÃFFoDÒ@6 oÃFVDÆj@:ÃFIDÇw@9ü~ÃF}DÈ6@9É=ÃFœDÉT@9¥‰ÃF"ÆDÊ@9zÀÃF'DË@9VÎÃF+DÌ@94ëÃF0ÔDÌÓ@9×ÃF32DÍä@8ğüÃF8CDÎÛ@8ÇuÃF:gDÏo@8 ÃF?œDĞ/@8vÄÃFDBDÑ2@8QÃFIDÑÿ@8*ÓÃF»DÏT@4âÃF
+bDĞD@3éåÃFDÑH@3½•ÃFWDÒ>@3† ÃFUDÓ€@3]ˆÃF`DÔI@3){ÃF#ŞDÕ|@2ıòÃF%„DÖI@2ÕÂÃF+ĞD×6@2Ÿ)ÃF/ DØH@2zJÃF6DÙF@2BŠÃE½ŠDËù@4°ÍÃEÊDÌw@4Ø=ÃEÕşDÌú@50ÃEà=DÍÊ@5@ŠÃEîEDÎ4@5a´ÃEöDÎx@5ˆüÃE´ÏDØ¶@0¿ûÃEİ$DÇ@5¬ôÃEáúDÈI@5|

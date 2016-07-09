@@ -1,26 +1,42 @@
-cmake_minimum_required(VERSION 2.8)
-
-project(nodeprecated)
-
-execute_process(COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_BINARY_DIR}/nodeprecated_defined)
-execute_process(COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/src ${CMAKE_CURRENT_BINARY_DIR}/nodeprecated_not_defined)
-
-configure_file(CMakeLists.txt.in ${CMAKE_CURRENT_BINARY_DIR}/nodeprecated_not_defined/CMakeLists.txt)
-set(DEFINE_NO_DEPRECATED DEFINE_NO_DEPRECATED)
-configure_file(CMakeLists.txt.in ${CMAKE_CURRENT_BINARY_DIR}/nodeprecated_defined/CMakeLists.txt)
-
-try_compile(Result ${CMAKE_CURRENT_BINARY_DIR}/nodeprecated_not_defined_build
-  ${CMAKE_CURRENT_BINARY_DIR}/nodeprecated_not_defined
-  nodeprecated_test
-  OUTPUT_VARIABLE Out
-)
-
-test_pass(Result "Failed to build without no-deprecated define")
-
-try_compile(Result ${CMAKE_CURRENT_BINARY_DIR}/nodeprecated_defined_build
-  ${CMAKE_CURRENT_BINARY_DIR}/nodeprecated_defined
-  nodeprecated_test
-  OUTPUT_VARIABLE Out
-)
-
-test_fail(Result "Built even with no-deprecated define")
+û
+1Z
+'לGOa
+×v₪ˆ¸	Û	®	X
+1#	Uזÿמ×Lֹ~
+ׁ²ול
+ק
+8Y2ס
+FQ	d«y!£»		Ý°	S
+-"
+U
+זÿמ»Lֲ„ֽµ	יכ
+ש2]	£	.ףHJd°z 	¦“¶		ß·	Y
+/('	TÛÿמÊLָײ´ךחץ!6]	¢-ץ	HUi
+×x"	×•¿	Þ·	_
+M'"UטÿמÜLּ‰׃³דעש1a£
+/ףI
+S
+eµ#¢’»	Þ	¾		c
+P(*[
+מÿמלLִװ·	ללת!2^£/רKV	i´|)©“¹	ג¹		g
+[$'
+[מÿמ‎Lֹˆ
+ׂ¹דצצ$2a¥,צ	HX	e½|'§–¾ 		אֲ	l
+F)
+0Z	ÿמMָָ½טץ
+ש ;b"¦6ת
+KY	h¸‚)×™¾	ßִ	k
+8(3W	ÿÿמMּ‰	ׂ»בףש Ab§3תH[g·}-£™¿	'	
+ג	ֶ	s
+"*3Z
+	ÿמ0Mֹ‹
+ײ¸
+מע‎$
+4g!!¥4‏	RZe¼‚0«ְ$		Üַ	
+s
+)*	:	^	ÿמ@Mּ	׳¼כץÿ(6c
+!.§4
+U]
+jְ‚2§¡¾	-		ז
+ָ	
+

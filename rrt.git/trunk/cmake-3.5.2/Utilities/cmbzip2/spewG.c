@@ -1,54 +1,6 @@
-
-/* spew out a thoroughly gigantic file designed so that bzip2
-   can compress it reasonably rapidly.  This is to help test
-   support for large files (> 2GB) in a reasonable amount of time.
-   I suggest you use the undocumented --exponential option to
-   bzip2 when compressing the resulting file; this saves a bit of
-   time.  Note: *don't* bother with --exponential when compressing 
-   Real Files; it'll just waste a lot of CPU time :-)
-   (but is otherwise harmless).
-*/
-
-/* ------------------------------------------------------------------
-   This file is part of bzip2/libbzip2, a program and library for
-   lossless, block-sorting data compression.
-
-   bzip2/libbzip2 version 1.0.5 of 10 December 2007
-   Copyright (C) 1996-2007 Julian Seward <jseward@bzip.org>
-
-   Please read the WARNING, DISCLAIMER and PATENTS sections in the 
-   README file.
-
-   This program is released under the terms of the license contained
-   in the file LICENSE.
-     ------------------------------------------------------------------ */
-
-
-#define _FILE_OFFSET_BITS 64
-
-#include <stdio.h>
-#include <stdlib.h>
-
-/* The number of megabytes of junk to spew out (roughly) */
-#define MEGABYTES 5000
-
-#define N_BUF 1000000
-char buf[N_BUF];
-
-int main ( int argc, char** argv )
-{
-   int ii, kk, p;
-   srandom(1);
-   setbuffer ( stdout, buf, N_BUF );
-   for (kk = 0; kk < MEGABYTES * 515; kk+=3) {
-      p = 25+random()%50;
-      for (ii = 0; ii < p; ii++)
-         printf ( "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" );
-      for (ii = 0; ii < p-1; ii++)
-         printf ( "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb" );
-      for (ii = 0; ii < p+1; ii++)
-         printf ( "ccccccccccccccccccccccccccccccccccccc" );
-   }
-   fflush(stdout);
-   return 0;
-}
+ï'ùü´ªÂˆ# ‡ÓçBìºªª‘\7½ºúø">Ÿ“ZZÙÔĞz¤¿¥¥…›‰ i;nˆ…¬¸•®BÜÍáô]ªb¼êúhuuµ¾nMV+U’Ñ«š*Ô·4·ìjaõ9ijòM¢¥iLÎôÊ¡G»¤l’ÜTîÄè¢¬¯XölÒulölÙât×µy+wíjº¿%İuÄ¶xjÚón^¤é\štxú¾#rÜTgW—ïv]!“¨$5^ï¦ÊÊúº€¯®¾©%Aª bfD2óò³PÓ6¼÷¦ø¶ÙuÿQm&wS}?IÎP}}¥.7İ‚›ß=ĞÓ¹k}]¯¾yìT´µUÕÔ¼\´ãeÏó¯™›ï¨fß¢cØz³İärö;u44=üL¥à¨t:*|û¶©«¯oi‰œ‰D"éÄš6â†Ù´X¼¾š’›ê{TÉn~rÿN§¾Áü>®ŠÍ›B¡¾†p]]}h2ršÔç¹z®ˆÇÊŸ_‹7´ïÓ²$·®ˆj3%7ÕÓK‘sû=·oĞq.ˆvf
+îgÍm5¡‡úN×ÂG>;=ÅÌŒKÍ;=X›¼o&l¾û/Y—÷zB!_ã@›m^}§ÏyÈÜ x*6ÜÛ×ê¯¯ï?zjtîŒZM`3®ÿìšñ&Ü»ïfMêfooæMQ©œ»vírëq“Æ]Öéît¸}}}œèï?zt”ås\«f_®$oüÚØ÷~3'ËnfÊ¤§/õ@wzwT‚×Sêë81Ğ9{–ÆÌˆ4Ÿ.Á‘ƒòçÃï[~!+hòÙ7rÜVé4“ft‡S¨¹İ³%´?Üwl`€Í(mÈé=Göã:0ôÕg§s!=C¦,'¡kß@U•>5éRzš2à?"­ÍcÇOåÍUIÍ+Å>l°
+¸npù—ÅÜå	µ2äì…<š"jÆÍ;|Á¿ínò9G;6xt«)môKÅ>j°y!'hJçƒ9¤Ÿ^İnÖ
+B@>VUğí;64/£:XPFifº©œòBoH‡•aŸ°©Bp|ÂúŠŠÚP_øÈ±ƒ§3‚&ÌË²˜¼%Š-†eËÉg%Ô¥&ù©­pmÔ¬¯®èíëë¥AsR4a&ĞÁ¢zò-m7)ı¥ÇL®&ûq|ÌëİÁƒæÑS¬çˆoòu¨	t°¨‘Î5äÔe¥¤¦Ãç¨©p:j®íNRGÏö§»Û_´öˆÁêàï²' ÎqSA¿š‚÷.Á½ı~¯Ëílèë#As`82>–&ĞÏeÚq´TW¥ÊJ]jºéÈ{O¥“<®wzv°|N‚&AÚ(Ì: 5Ğ¦¥e30™šÎ
+¿OØZåz§»¡¯ñØ‰£ãPÓ¦ü¥Éõšè«ŒL®µtFš C¨püİ;ˆšm’š|“¯ÂL[aJÍvu¯aëúqNÁí*(è÷·7îï=Ö1ØÜOÍœá[…šk£ç"ó0ò¶(ÖÕL¡ÂE"fƒÓWë
+v6w4„Ûw·ô«‚&XÛ,&Ÿø¢¿¿_G\EVÓMÔôBÕzÿı½Ûz[wïÎšßFĞ\Û|(¾W°›‹Ï_Y\Ô5IŒ^|$¡o'%z ä!j†Úw4îëÜİÒ¬šß.t·A¹s£àOx44İn—‰›kÂ£¯×WSáx*\Nïî‡švw47«‚æÛ…Ï6Ê—\ÿƒEñ«n5å°©wøz>5ÉÇíòÕ¸İ>ÏzgĞÓø@ p„š9z@	šyïr€Äõ$Éæ‹Õn§“_ © æRvz«GçÁWóQgÀ»Ùè:;ØAZšÆğ ù®ÅGVï,ˆbuEE…ÎËÊu™éè«„N¡ëcÎ€oƒ#°÷S»I:?@à½ñk¬®/ŠßeAS×eåºÄºªı¡*Á×ÕæìmŞàèšêh§AóÀi\‡éYo€}¸ú‘¤s·[×uåºÌ$?'<.Ağ«pÜıHkeåg§XDÕdn¾gõQƒòçƒë¢ØSMİtIM‚ëÄqÖ8Øëu8-u•-S':Záf25ÿÉêÃåÎà`‡(Ö÷ôlÛ¦ÿ²òåqb3o:‡İ»÷·mØØñ©ö––q511ĞÉàÏ·V×××Ó¸Y)+¨˜Â‘®.f¨ÃëœŸ‡™yŒ›IÕ¼†»We¸yëÅÅêêjªfuÌäé	N"©cØérìmhôvôt° û$™ÿÍâÃeIç·¨™ÄÍ¢˜éóÑê<DO

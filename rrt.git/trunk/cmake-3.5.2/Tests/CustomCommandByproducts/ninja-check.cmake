@@ -1,20 +1,1 @@
-file(READ build.ninja build_ninja)
-if("${build_ninja}" MATCHES [====[
-# Unknown Build Time Dependencies.
-# Tell Ninja that they may appear as side effects of build rules
-# otherwise ordered by order-only dependencies.
-
-((build [^:]*: phony [^\n]*
-)*)# ========]====])
-  set(phony "${CMAKE_MATCH_1}")
-  if(NOT phony)
-    message(STATUS "build.ninja correctly does not have extra phony rules")
-  else()
-    string(REGEX REPLACE "\n+$" "" phony "${phony}")
-    string(REGEX REPLACE "\n" "\n  " phony "  ${phony}")
-    message(FATAL_ERROR "build.ninja incorrectly has extra phony rules:\n"
-      "${phony}")
-  endif()
-else()
-  message(FATAL_ERROR "build.ninja is incorrectly missing expected block")
-endif()
+C?ÊR÷Ã‹xÜD—Å?Ê’¦Ã‹zÉD—a?ÊÍÛÃ‹{|D—¾?ÊÖ-Ã‹}²D—X?Ë3Ã‹[ïD—i?JÃ	Ã‹\5D—l?su*Ã‹]ŸD— ?K¶ıÃ‹YëD—ş?$WçÃ‹]éD—x?tÊ~Ã‹^D—ô?LïÑÃ‹_D—?ußæÃ‹a,D—Ò?NYÃ‹[WD—U?&¢ÀÃ‹]D—?‰NÃ‹a÷D—Û?wñÃ‹aíD—L?O&ïÃ‹\D—Ï?'ÀÃ‹^¿D—7?#MÃ‹dGD—?xT-Ã‹d@D—ı?PXŸÃ‹]ıD—o?(æ†Ã‹_1D—“?±½Ã‹f8D—•?Qœ1Ã‹`cD—?*EÃ‹h›D—]?R¯ÔÃ‹a³D—´?+'Ã‹i¢D—Ø?SànÃ‹c–D—R?,TÃ‹kLD—m?U‹Ã‹dÑD—Ö?-†ÿÃ‹mD—?V+…Ã‹fD—q?.•¡Ã‹nÃD—§?Ww|Ã‹i^D—;?/Ñ„Ã‹uDD—¤?€”nÃ‹qnD—n?X¨ôÃ‹jóD—Ö?0ôÀÃ‹v1D—%?% Ã‹r“D—÷?YĞ¦Ã‹l¿D—z?2oÃ‹v•D—õ?ÒYÃ‹rD—¤?[½Ã‹m%D—I?3`êÃ‹x]D—˜?‚n¢Ã‹tÂD—j?\R›Ã‹pD—?4ƒcÃ‹y¶D—*?ƒİÃ‹vÃD—?]†éÃ‹{şD—×?ƒ³TÃ‹wõD—–?^Ç°Ã‹{àD—%?„DÀÃ‹y–D—(?`QÃ‹}ÜD—Ğ?„æñÃ‹z|D—¨?a<ËÃ‹pfD—?ÁÕÊÃ‹|yD—R?bxBÃ‹mID—ï?Áí7Ã‹~™D—í?cÜJÃ‹j

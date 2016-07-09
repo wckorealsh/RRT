@@ -1,33 +1,1 @@
-cmake_minimum_required(VERSION 2.4)
-
-# This is a template for the CTest script for this system
-
-set(CTEST_SITE                          "@SITE@")
-set(CTEST_BUILD_NAME                    "@BUILDNAME@")
-
-# ---
-set(CTEST_SOURCE_DIRECTORY              "@CMAKE_SOURCE_DIR@")
-set(CTEST_BINARY_DIRECTORY              "@CMAKE_BINARY_DIR@")
-set(CTEST_UPDATE_COMMAND                "@UPDATE_COMMAND@")
-set(CTEST_UPDATE_OPTIONS                "@UPDATE_OPTIONS@")
-set(CTEST_CMAKE_GENERATOR               "@CMAKE_GENERATOR@")
-set(CTEST_BUILD_CONFIGURATION           "Release")
-#set(CTEST_MEMORYCHECK_COMMAND           "@MEMORYCHECK_COMMAND@")
-#set(CTEST_MEMORYCHECK_SUPPRESSIONS_FILE "@MEMORYCHECK_SUPPRESSIONS_FILE@")
-#set(CTEST_MEMORYCHECK_COMMAND_OPTIONS   "@MEMORYCHECK_COMMAND_OPTIONS@")
-#set(CTEST_COVERAGE_COMMAND              "@COVERAGE_COMMAND@")
-set(CTEST_NOTES_FILES                   "${CTEST_SCRIPT_DIRECTORY}/${CTEST_SCRIPT_NAME}")
-
-#CTEST_EMPTY_BINARY_DIRECTORY(${CTEST_BINARY_DIRECTORY})
-
-set(CTEST_DROP_METHOD "@DROP_METHOD@")
-
-CTEST_START(Experimental TRACK Weekly)
-CTEST_UPDATE(SOURCE "${CTEST_SOURCE_DIRECTORY}")
-CTEST_CONFIGURE(BUILD "${CTEST_BINARY_DIRECTORY}")
-CTEST_READ_CUSTOM_FILES("${CTEST_BINARY_DIRECTORY}")
-CTEST_BUILD(BUILD "${CTEST_BINARY_DIRECTORY}")
-CTEST_TEST(BUILD "${CTEST_BINARY_DIRECTORY}")
-#CTEST_MEMCHECK(BUILD "${CTEST_BINARY_DIRECTORY}")
-#CTEST_COVERAGE(BUILD "${CTEST_BINARY_DIRECTORY}")
-CTEST_SUBMIT()
+k@$×[ÄnâDø@Ö@Äm¥DøB@¥UÄlñDøm@tSÄf¸DøU@¤ÁÄfDø"@	åÄ^hDøT@#ãýÄ\ÁDø&@“#Ä[µDøÄ@$GòÄZ:Dø¶@]ÄZµDø9@#ªÄX¼DøÚ@ãÂÄY]Død@"ì&Ä[ Dø«@ÚJÄV8Dø„@"¿ÄK¤Dø@(z]ÄNàDø×@%‚ùÄLØDø£@$ÑúÄB·Dø˜@?eÄADø¨@˜æÄH¼DøC@–ÄCDDø@ù…ÄA8Døn@#ÂÄAQDø‰@ÛèÄ<íDøX@÷‘Ä6ûDø@øèÄ?-DøÒ@ÛÀÄ<ÁDø-@èÀÄ1+Dø»@šJÄ/[DøÆ@òÄ2ÄDø¯@Ù1Ä=ÀDøR@I)Ä<ÍDø—@K‰Ä?3Døç@$hŒÄ70Dø˜@¦KÄ5¥Dø^@\½Ä5Dø@TÄ9<Dø±@ bÄ0ÐDøÝ@	­ñÄ73Dø6@ÏXÄ/¿Dø1@	¬½Ä7£Dø‹@¬Ä3Dø‘@Á:Ä()Døä@¬Ä(vDøE@•XÄ	îDøA@®rÄŽDø£@5ÄDDøZ@™UÄ	sDø[@zÄüDø@Ç‡Ä÷µDøQ@°äÄöDøÝ@3‰Äø“Døà@ðÄö®DøÎ@´,ÄåDø¿@ø·ÄàPDø¼@‰ÂÄ×ÂDøù@§{ÄÛ‹DøL@ùÆÄÖcDø?@ŠçÄÛ|Dø”@ÓƒÄÙÖDøÃ@œÛÄ».Dø;@?öÄª¶Dø7@ÃêÄ¸~DøÅ@ÐMÄ³ïDø†@~Ä­•Dø¯@`Ä®‡DøP@–¸ÄªfDø:@»ùÄ”Dø®@v!Ä†ºDø:@IeÄP:DøG@†ÄJÁDø™@þ½ÄN¦Dø²@Q$ÄVùDø…@;Ä²Dø‡@r+Ä|Dø®@1ÄÕiDøB@&A*Ä¦ƒDøÃ@ºdÄ’>DøG@î6ÄÆkDø!@sÿÄÄ§Dø ÷@»wÄÂ~Dø!@ÖÄÁ«Dø @9/ÄÂiDø-@[ÌÄÃçDøð@þÉÄ¿âDøå@lúÄÅ®Dø#@?ŽÄÉ¢Dø &@šHÄÃODø",@Ö{ÄÁ_Dø"ú@§NÄ»Dø"–@h«Ä»RDø®@‡2ÄÆDø"R@¡»ÄÃ{Dø"œ@„ÄÃÉDø!í@€¥ÄÂDø"Ž@ÎÄÊ¶Dø…@‹UÄ»Dø"I@Ð¬ÄïDø D@;·Ä~½Dø $@m‹Ä~Dø‚@ Ä{¼Døè@Ø×ÄwÂDø!4@öóÄwDø û@;ÄtDø!¿@¿ßÄqäDø"@—ÆÄrâDø@Œ¾Än¾Dø""@ÆjÄm¼Dø 1@/8ÄnKDø!x@fhÄm˜DøU@íXÄlÛDøb@!\Äp§Dø÷@$%áÄmDøh@%ËãÄqCDø#@üÐÄpVDø"`@"¯ÄmíDø"Ø@Œ½Än!Dø!ƒ@)ÄrhDø"r@VƒÄs Dø ð@4é

@@ -1,41 +1,7 @@
-
-#ifndef LIBSTATIC_EXPORT_H
-#define LIBSTATIC_EXPORT_H
-
-#ifdef LIBSTATIC_STATIC_DEFINE
-#  define LIBSTATIC_EXPORT
-#  define LIBSTATIC_NO_EXPORT
-#else
-#  ifndef LIBSTATIC_EXPORT
-#    ifdef libstatic_EXPORTS
-        /* We are building this library */
-#      define LIBSTATIC_EXPORT
-#    else
-        /* We are using this library */
-#      define LIBSTATIC_EXPORT
-#    endif
-#  endif
-
-#  ifndef LIBSTATIC_NO_EXPORT
-#    define LIBSTATIC_NO_EXPORT
-#  endif
-#endif
-
-#ifndef LIBSTATIC_DEPRECATED
-#  define LIBSTATIC_DEPRECATED __attribute__ ((__deprecated__))
-#endif
-
-#ifndef LIBSTATIC_DEPRECATED_EXPORT
-#  define LIBSTATIC_DEPRECATED_EXPORT LIBSTATIC_EXPORT LIBSTATIC_DEPRECATED
-#endif
-
-#ifndef LIBSTATIC_DEPRECATED_NO_EXPORT
-#  define LIBSTATIC_DEPRECATED_NO_EXPORT LIBSTATIC_NO_EXPORT LIBSTATIC_DEPRECATED
-#endif
-
-#define DEFINE_NO_DEPRECATED 0
-#if DEFINE_NO_DEPRECATED
-# define LIBSTATIC_NO_DEPRECATED
-#endif
-
-#endif
+”ô?­Ÿ¢C-R=D¯™Š@	ÙæC-RD¯˜M@
+PC-RÎD¯—Þ@
+¥?C-TµD¯—Š@
+¥•C-XgD¯—O@
+v€C-ZQD¯–û@
+vÐC-Ø!D¯œ¤@	$C-Û/D¯œc@ØHC-Û˜D¯›þ@àC-À„D¯œÀ?Ôå‰C-Ý(D¯›ü@²æC-ÀÞD¯œ¤?ÔÊ—C-Ý(D¯›u@Í%C-¿ìD¯œ?ÕÞC-Ý:D¯›@à”C-Ò[D¯œ»?Þ{·C-Á
+D¯›½?Ô×øC-ÝBD¯š€@úC-ÓÅD¯œ^?ÞG^C-ÁKD¯›B?Ô×‰C-¼ÍD¯œ)?¼UC-Þ2D¯š @ñšC-Ô9D¯›÷?ÞANC-ÂëD¯š÷?Ô–‘C-¿0D¯›ó?»§ƒC-ßáD¯™Ò@ÏåC-ÓêD¯›|?ÞacC-ÂþD¯š…?ÔœðC-¾ÎD¯›y?»²ŸC-ÞD¯™@	&§C-Õ[D¯›?Þ+(C-ÄÖD¯š1?ÔR½C-Õ}D¯œ}?ÄÀ¬C-¿ÒD¯›?»‡åC-âD¯™@¹vC-Ö9D¯šÁ?ÞçC-ÅµD¯™Ò?Ô4C-Ô¼D¯›ú?ÄãC-½âD¯šr?»ÍkC-ãD¯˜§@Ÿ(C-×ND¯šZ?ÝëÇC-Å£D¯™M?ÔAúC-×µD¯›Æ?ÄhöC-ÀåD¯š<?»VC-ßD¯—µ@	O÷C-×mD¯™è?ÝõØC-ÇMD¯™?ÓþuC-×^D¯›M?ÄyšC-Â"D¯™é?»#?C-ã]D¯—¬@ÕÊC-×D¯™w?Ýÿ<C-ÇnD¯˜‘?Ô™C-Ù^D¯›?Ä'‘C-ÁkD¯™e?»9ÄC-ä_D¯—K@ËNC-ØD¯™?ÝôÇC-Ç1D¯˜?ÔÊC-×ãD¯šw?ÄgÑC-ÁäD¯˜þ?»#C-â…D¯–ã@	óC-×…D¯˜Ñ?ÞyC-È'D¯—ý?ÓÝäC-ØD¯šO?ÄQrC-ÂlD¯˜Þ?ºøaC-ä¢D¯–Ÿ@ä¥C-ØsD¯˜s?Ýì•C-ÇðD¯—?Óð®C-Ø~D¯™é?Ä>ÖC-Ã²D¯˜‹?ºÂâC-ãD¯•æ@	7ˆC-ÛD¯˜4?Ýx)C-ÉD¯—?ÓÅC-ÛD¯™¬?ÃÒ/C-Å0D¯˜/?º„JC-â£D¯•]@	]C-Ú‹D¯—®?
