@@ -1,1 +1,0 @@
-/usr/bin/c++   -O3 -DNDEBUG    CMakeFiles/rrtstar.dir/rrts_main.cpp.o CMakeFiles/rrtstar.dir/system_single_integrator.cpp.o CMakeFiles/rrtstar.dir/kdtree.c.o  -o ../bin/rrtstar  -L/home/slee198/RRT/rrtstar/build/lib  -L/home/slee198/RRT/rrtstar/rrtstar-standalone/pod-build/lib -rdynamic 

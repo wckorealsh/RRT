@@ -1,7 +1,0 @@
-package lcmtypes;
-
-struct trajectory_t {
-    
-    int32_t num_states;
-    state_t states[num_states];
-}

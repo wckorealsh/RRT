@@ -1,2 +1,0 @@
-/home/slee198/RRT/rrtstar/rrtstar-standalone/pod-build/src/CMakeFiles/rrtstar.dir
-/home/slee198/RRT/rrtstar/rrtstar-standalone/pod-build/CMakeFiles/tmp.dir
